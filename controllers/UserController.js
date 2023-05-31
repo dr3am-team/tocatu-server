@@ -5,6 +5,7 @@ class Controller {
     this.service = new UserService();
   }
   getUsers = async (req, res) => {
+    console.log("asdasd 😀");
     try {
       const users = await this.service.getUsers();
       res.json(users);

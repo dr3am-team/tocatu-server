@@ -11,7 +11,7 @@ app.use("/users", new UserRoute().start());
 
 const PORT = 8080;
 const server = app.listen(PORT, () =>
-  console.log("Servidor http express escuchando en http://127.0.0.1:8080")
+  console.log("Servidor http express escuchando en http://localhost:8080")
 );
 server.on("error", (error) =>
   console.log("Error en servidor: " + error.message)
