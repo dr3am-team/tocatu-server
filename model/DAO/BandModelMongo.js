@@ -5,4 +5,9 @@ export default class BandModelMongo {
     const bands = BandModel.find().exec();
     return bands;
   };
+
+  createBand = (band) => {
+    const newBand = new BandModel(band);
+    return newBand.save();
+  };
 }
