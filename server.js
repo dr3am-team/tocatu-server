@@ -3,6 +3,7 @@ import UserRoute from "./routes/UserRoute.js";
 import cors from "cors";
 import { connect } from "mongoose";
 import config from "./config.js";
+import BandRoute from "./routes/BandRoute.js";
 
 const PORT = config.PORT;
 
@@ -12,6 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use("/users", new UserRoute().start());
+app.use("/bands", new BandRoute().start());
 
 if (config.MODO_PERSISTENCIA === "MONGODB") {
   //IIFE (Immediately Invoked Function Expression) para usar async/await en vez de .then

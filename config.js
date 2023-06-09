@@ -7,5 +7,5 @@ export default {
   PORT, // es igual a -> PORT : PORT
   MODO_PERSISTENCIA,
   MONGO_URL,
-  BASE
+  BASE,
 };
