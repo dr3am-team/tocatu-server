@@ -1,7 +1,10 @@
 import express from "express";
 import UserRoute from "./routes/UserRoute.js";
 import cors from "cors";
-import mongoose from "mongoose";
+import { connect } from "mongoose";
+import config from "./config.js";
+
+const PORT = config.PORT;
 
 const app = express();
 app.use(express.json());
@@ -10,13 +13,16 @@ app.use(cors());
 
 app.use("/users", new UserRoute().start());
 
-mongoose
-  .connect("mongodb://localhost:27017/tocatu")
-  .then(console.log("connected to Tocatu"));
+if (config.MODO_PERSISTENCIA === "MONGODB") {
+  //IIFE (Immediately Invoked Function Expression) para usar async/await en vez de .then
+  (async () => {
+    await connect(`${config.MONGO_URL}/${config.BASE}`);
+    console.log("Connected to Tocatu");
+  })();
+}
 
-const PORT = 8080;
 const server = app.listen(PORT, () =>
-  console.log("Servidor http express escuchando en http://localhost:8080")
+  console.log(`Servidor http express escuchando en http://localhost:${PORT}`)
 );
 server.on("error", (error) =>
   console.log("Error en servidor: " + error.message)

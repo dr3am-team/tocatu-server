@@ -1,10 +1,8 @@
-import ModelFile from "./productosFile.js";
-import ModelMem from "./productosMem.js";
 import ModelMongoDB from "./productosMongoDB.js";
 
 class ModelFactory {
-  static get(tipo) {
-    switch (tipo) {
+  static get(type) {
+    switch (type) {
       case "MEM":
         console.log("***** Persistiendo en Memoria *****");
         return new ModelMem();
