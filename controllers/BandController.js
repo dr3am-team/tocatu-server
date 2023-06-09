@@ -10,7 +10,7 @@ export default class BandController {
       const bandas = await this.bandService.getBands();
       res.json(bandas);
     } catch (error) {
-      console.error("Error getting bands with get");
+      console.error("Error getting bands with get", error);
     }
   };
 }
