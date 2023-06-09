@@ -1,20 +1,20 @@
-import UserModel from "../models/UserModel.js";
+import UserModel from "../model/DAO/mongooseModels/UserModel.js";
 
 class Service {
   constructor() {
-    this.usersMem = new UserModel();
+    this.userModel = new UserModel();
   }
 
   getUsers = async () => {
-    const users = await this.usersMem.getUsers();
+    const users = await this.userModel.getUsers();
     return users;
   };
   addUser = async (user) => {
-    const userAdded = await this.usersMem.addUser(user);
+    const userAdded = await this.userModel.addUser(user);
     return userAdded;
   };
   editUser = async (user) => {
-    const userEdited = await this.usersMem.editUser(user);
+    const userEdited = await this.userModel.editUser(user);
     return userEdited;
   };
 }
