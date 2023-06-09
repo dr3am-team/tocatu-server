@@ -15,6 +15,10 @@ export default class BandService {
     const bands = await this.bandModel.getBands();
     return bands;
   };
+  getBandById = async (id) => {
+    const band = await this.bandModel.getBandById(id);
+    return band;
+  };
   createBand = async (band) => {
     const newBand = await this.bandModel.createBand(band);
     return newBand;

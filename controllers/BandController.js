@@ -14,6 +14,20 @@ export default class BandController {
     }
   };
 
+  getBandById = async (req, res) => {
+    const { id } = req.params;
+    if (!id) {
+      res.status(400).send("Empty id");
+    }
+    try {
+      const banda = await this.bandService.getBandById(id);
+      res.json(banda);
+    } catch (error) {
+      console.error("Error getting band by id get", error);
+      res.status(500).send("Check id");
+    }
+  };
+
   createBand = async (req, res) => {
     console.log(Object.keys(req.body).length);
     if (Object.keys(req.body).length <= 0) {

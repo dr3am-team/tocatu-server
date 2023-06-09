@@ -9,6 +9,7 @@ class Router {
 
   start() {
     this.router.get("/", this.controller.getBands);
+    this.router.get("/:id", this.controller.getBandById);
     this.router.post("/", this.controller.createBand);
     return this.router;
   }
