@@ -27,4 +27,8 @@ export default class BandService {
     const updatedBand = await this.bandModel.updateBand(id, band);
     return updatedBand;
   };
+  deleteBand = async (id) => {
+    const deletedBand = await this.bandModel.deleteBand(id);
+    return deletedBand;
+  };
 }

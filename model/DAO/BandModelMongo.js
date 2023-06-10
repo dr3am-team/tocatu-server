@@ -22,4 +22,9 @@ export default class BandModelMongo {
     console.log("Banda updateada", updatedBand);
     return updatedBand;
   };
+
+  deleteBand = async (id) => {
+    const deletedBand = await BandModel.findByIdAndDelete(id);
+    return deletedBand;
+  };
 }

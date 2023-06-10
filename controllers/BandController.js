@@ -55,4 +55,17 @@ export default class BandController {
       res.status(500).send("Check your fields..");
     }
   };
+  deleteBand = async (req, res) => {
+    const { id } = req.params;
+    if (!id) {
+      res.status(400).send("Id not found");
+    }
+    try {
+      const deletedBand = await this.bandService.deleteBand(id);
+      res.json(deletedBand);
+    } catch (error) {
+      console.log("Error deleting band: ", err);
+      res.status(500).send("Check the id");
+    }
+  };
 }
