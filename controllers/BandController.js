@@ -41,4 +41,31 @@ export default class BandController {
       res.status(500).send("Check your fields");
     }
   };
+
+  updateBand = async (req, res) => {
+    if (Object.keys(req.body).length <= 0) {
+      res.status(400).send("Empty object");
+    }
+    try {
+      const { id } = req.params;
+      const updatedBand = await this.bandService.updateBand(id, req.body);
+      res.json(updatedBand);
+    } catch (err) {
+      console.log("Error updating band with PUT: ", err);
+      res.status(500).send("Check your fields..");
+    }
+  };
+  deleteBand = async (req, res) => {
+    const { id } = req.params;
+    if (!id) {
+      res.status(400).send("Id not found");
+    }
+    try {
+      const deletedBand = await this.bandService.deleteBand(id);
+      res.json(deletedBand);
+    } catch (error) {
+      console.log("Error deleting band: ", err);
+      res.status(500).send("Check the id");
+    }
+  };
 }

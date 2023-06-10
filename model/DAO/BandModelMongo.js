@@ -15,4 +15,18 @@ export default class BandModelMongo {
     const newBand = new BandModel(band);
     return newBand.save();
   };
+
+  updateBand = async (id, band) => {
+    const updatedBand = await BandModel.findByIdAndUpdate(id, band, {
+      returnDocument: "after",
+    }).exec();
+    //const updatedBand = await BandModel.findById(id).exec();
+    console.log("Banda updateada", updatedBand);
+    return updatedBand;
+  };
+
+  deleteBand = async (id) => {
+    const deletedBand = await BandModel.findByIdAndDelete(id);
+    return deletedBand;
+  };
 }

@@ -11,6 +11,8 @@ class Router {
     this.router.get("/", this.controller.getBands);
     this.router.get("/:id", this.controller.getBandById);
     this.router.post("/", this.controller.createBand);
+    this.router.put("/:id", this.controller.updateBand);
+    this.router.delete("/:id", this.controller.deleteBand);
     return this.router;
   }
 }
