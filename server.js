@@ -1,9 +1,11 @@
-import express from "express";
+import express from 'express';
+import UserRoute from './routes/UserRoute.js';
+import cors from 'cors';
+import { connect } from 'mongoose';
+import config from './config.js';
+import BandRoute from './routes/BandRoute.js';
+import EventRoute from './routes/EventRoute.js';
 import BarRoute from "./routes/BarRoute.js";
-import cors from "cors";
-import { connect } from "mongoose";
-import config from "./config.js";
-import BandRoute from "./routes/BandRoute.js";
 
 const PORT = config.PORT;
 
@@ -12,8 +14,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
+app.use('/api/users', new UserRoute().start());
+app.use('/api/bands', new BandRoute().start());
+app.use('/api/events', new EventRoute().start());
 app.use("/api/bars", new BarRoute().start());
-app.use("/api/bands", new BandRoute().start());
 
 if (config.MODO_PERSISTENCIA() === "MONGODB") {
   //IIFE (Immediately Invoked Function Expression) para usar async/await en vez de .then
