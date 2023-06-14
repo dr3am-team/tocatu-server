@@ -1,22 +1,34 @@
-import BarModel from "../model/DAO/mongooseModels/BarModel";
+//import MongoDBModelFactory from "../model/DAO/factories/MongoDBModelFactory.js";
+import MemoryModelFactory from "../model/DAO/factories/MemoryModelFactory.js";
+import Factory from "../model/DAO/factories/Factory.js";
+import config from "../config.js";
 
-class Service {
+export default class BarService {
   constructor() {
-    this.barModel = new UserModel();
+    //this.bandModel = new MongoDBModelFactory().createBandModel();
+    //this.bandModel = new MemoryModelFactory().createBandModel();
+
+    this.barModel = Factory.get(config.MODO_PERSISTENCIA()).createBarModel();
   }
 
-  getUsers = async () => {
-    const users = await this.barModel.getUsers();
-    return users;
+  getBars = async () => {
+    const bars = await this.barModel.getBars();
+    return bars;
   };
-  addUser = async (user) => {
-    const userAdded = await this.barModel.addUser(user);
-    return userAdded;
+  getBarById = async (id) => {
+    const bar = await this.barModel.getBarById(id);
+    return bar;
   };
-  editUser = async (user) => {
-    const userEdited = await this.barModel.editUser(user);
-    return userEdited;
+  createBar = async (bar) => {
+    const newBar = await this.barModel.createBar(bar);
+    return newBar;
+  };
+  updateBar = async (id, bar) => {
+    const updatedBar = await this.barModel.updateBar(id, bar);
+    return updatedBar;
+  };
+  deleteBar = async (id) => {
+    const deletedBar = await this.barModel.deleteBar(id);
+    return deletedBar;
   };
 }
-
-export default Service;
