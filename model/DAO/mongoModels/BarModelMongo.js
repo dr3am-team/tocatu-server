@@ -12,7 +12,7 @@ export default class BarModelMongo {
   };
 
   createBar = (bar) => {
-    const newBar = new BarModel(band);
+    const newBar = new BarModel(bar);
     return newBar.save();
   };
 
