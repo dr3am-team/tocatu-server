@@ -1,8 +1,8 @@
-import BandModel from '../../mongoDbValidations/BandModel.js';
+import BandModel from "../../mongoDbValidations/BandModel.js";
 
 export default class BandModelMongo {
   getBands = () => {
-    const bands = BandModel.find().select('-password -__v').exec();
+    const bands = BandModel.find().select("-password -__v").exec();
     return bands;
   };
 
@@ -16,15 +16,15 @@ export default class BandModelMongo {
     return newBand.save();
   };
 
-  updateBand = async (id, band) => {
-    const updatedBand = await BandModel.findByIdAndUpdate(id, band, {
-      returnDocument: 'after',
+  updateBand = (id, band) => {
+    const updatedBand = BandModel.findByIdAndUpdate(id, band, {
+      returnDocument: "after",
     }).exec();
     return updatedBand;
   };
 
-  deleteBand = async (id) => {
-    const deletedBand = await BandModel.findByIdAndDelete(id);
+  deleteBand = (id) => {
+    const deletedBand = BandModel.findByIdAndDelete(id);
     return deletedBand;
   };
 }
