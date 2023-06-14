@@ -8,7 +8,7 @@ export default class BandService {
     //this.bandModel = new MongoDBModelFactory().createBandModel();
     //this.bandModel = new MemoryModelFactory().createBandModel();
 
-    this.bandModel = Factory.get(config.MODO_PERSISTENCIA).createBandModel();
+    this.bandModel = Factory.get(config.MODO_PERSISTENCIA()).createBandModel();
   }
 
   getBands = async () => {
