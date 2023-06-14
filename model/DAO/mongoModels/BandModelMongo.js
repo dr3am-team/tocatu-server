@@ -1,4 +1,4 @@
-import BandModel from "./mongooseModels/BandModel.js";
+import BandModel from "../../mongoDbValidations/BandModel.js";
 
 export default class BandModelMongo {
   getBands = () => {
@@ -18,7 +18,7 @@ export default class BandModelMongo {
 
   updateBand = async (id, band) => {
     const updatedBand = await BandModel.findByIdAndUpdate(id, band, {
-      returnDocument: "after",
+      returnDocument: "after"
     }).exec();
     //const updatedBand = await BandModel.findById(id).exec();
     console.log("Banda updateada", updatedBand);

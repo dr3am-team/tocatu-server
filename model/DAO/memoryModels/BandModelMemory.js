@@ -7,7 +7,7 @@ class ModelMemory {
         style: "Rock",
         mail: "acdc@acdc.com",
         password: "band123",
-        username: "acdc123",
+        username: "acdc123"
       },
       {
         id: 2,
@@ -15,8 +15,8 @@ class ModelMemory {
         style: "Rock",
         mail: "acdc@acdc.com",
         password: "band123",
-        username: "acdc123",
-      },
+        username: "acdc123"
+      }
     ];
   }
   getBands = async () => {

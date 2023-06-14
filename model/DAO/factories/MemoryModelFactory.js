@@ -1,10 +1,10 @@
-import AbstractFactory from "./AbstractFactory.js";
-import BandModelMongo from "../BandModelMongo.js";
-import BandModelMemory from "../BandModelMemory.js";
+import BandModelMemory from "../memoryModels/BandModelMemory.js";
 
-export default class MemoryModelFactory extends AbstractFactory {
+export default class MemoryModelFactory {
   createBandModel() {
-    console.log("hola");
     return new BandModelMemory();
   }
+  createBarModel() {}
+  createEventModel() {}
+  createUserModel() {}
 }

@@ -1,4 +1,4 @@
-import UserModel from "../model/DAO/mongooseModels/UserModel.js";
+import UserModel from "../model/mongoDbValidations/UserModel.js";
 
 class Service {
   constructor() {

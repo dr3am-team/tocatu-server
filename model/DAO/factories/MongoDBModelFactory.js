@@ -1,8 +1,10 @@
-import AbstractFactory from "./AbstractFactory.js";
-import BandModelMongo from "../BandModelMongo.js";
+import BandModelMongo from "../mongoModels/BandModelMongo.js";
 
-export default class MongoDBModelFactory extends AbstractFactory {
+export default class MongoDBModelFactory {
   createBandModel() {
     return new BandModelMongo();
   }
+  createBarModel() {}
+  createEventModel() {}
+  createUserModel() {}
 }
