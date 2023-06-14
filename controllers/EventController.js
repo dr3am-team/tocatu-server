@@ -39,7 +39,7 @@ export default class EventController {
       const newEvent = await this.eventService.createEvent(req.body);
       res.json(newEvent);
     } catch (error) {
-      console.error('Error creating event with post');
+      console.error('Error creating event with post', error);
       res.status(500).send('Check your fields');
     }
   };

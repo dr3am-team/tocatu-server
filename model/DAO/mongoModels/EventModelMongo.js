@@ -12,6 +12,7 @@ export default class EventModelMongo {
   };
 
   createEvent = (event) => {
+    console.log('holi desde el model', event);
     const newEvent = new EventModel(event);
     return newEvent.save();
   };
