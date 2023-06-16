@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const bandSchema = new mongoose.Schema({
   username: {
@@ -22,6 +22,10 @@ const bandSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  userType: {
+    type: String,
+    default: "band",
+  },
 });
 
-export default mongoose.model('Band', bandSchema);
+export default mongoose.model("Band", bandSchema);

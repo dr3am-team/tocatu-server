@@ -27,4 +27,8 @@ export default class BarModelMongo {
     const deletedBar = BarModel.findByIdAndDelete(id);
     return deletedBar;
   };
+  getBarByUsername = (username) => {
+    const bar = BarModel.findOne({ username }).exec();
+    return bar;
+  };
 }

@@ -13,6 +13,7 @@ class Router {
     this.router.post("/", this.controller.createBar);
     this.router.put("/:id", this.controller.updateBar);
     this.router.delete("/:id", this.controller.deleteBar);
+    this.router.post("/login", this.controller.loginBar);
     return this.router;
   }
 }

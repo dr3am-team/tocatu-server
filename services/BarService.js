@@ -31,4 +31,22 @@ export default class BarService {
     const deletedBar = await this.barModel.deleteBar(id);
     return deletedBar;
   };
+  getBarByUsername = async (username, password) => {
+    const bar = await this.barModel.getBarByUsername(username);
+    if (bar) {
+      if (bar.password === password) {
+        const noPasswordBar = {
+          username: bar.username,
+          mail: bar.mail,
+          name: bar.name,
+          address: bar.address,
+          capacity: bar.capacity,
+          userType: bar.userType,
+        };
+        return noPasswordBar;
+      }
+    } else {
+      return null;
+    }
+  };
 }
