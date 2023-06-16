@@ -1,4 +1,4 @@
-import BandService from '../services/BandService.js';
+import BandService from "../services/BandService.js";
 
 export default class BandController {
   constructor() {
@@ -8,64 +8,64 @@ export default class BandController {
   getBands = async (req, res) => {
     try {
       const bandas = await this.bandService.getBands();
-      res.json(bandas);
+      return res.json(bandas);
     } catch (error) {
-      console.error('Error getting bands with get', error);
+      console.error("Error getting bands with get", error);
     }
   };
 
   getBandById = async (req, res) => {
     const { id } = req.params;
     if (!id) {
-      res.status(400).send('Empty id');
+      return res.status(400).send("Empty id");
     }
     try {
       const banda = await this.bandService.getBandById(id);
-      res.json(banda);
+      return res.json(banda);
     } catch (error) {
-      console.error('Error getting band by id get', error);
-      res.status(500).send('Check id');
+      console.error("Error getting band by id get", error);
+      return res.status(500).send("Check id");
     }
   };
 
   createBand = async (req, res) => {
     console.log(Object.keys(req.body).length);
     if (Object.keys(req.body).length <= 0) {
-      res.status(400).send('Empty object');
+      return res.status(400).send("Empty object");
     }
     try {
       const newBand = await this.bandService.createBand(req.body);
-      res.json(newBand);
+      return res.json(newBand);
     } catch (error) {
-      console.error('Error creating band with post');
-      res.status(500).send('Check your fields');
+      console.error("Error creating band with post");
+      return res.status(500).send("Check your fields");
     }
   };
 
   updateBand = async (req, res) => {
     if (Object.keys(req.body).length <= 0) {
-      res.status(400).send('Empty object');
+      return res.status(400).send("Empty object");
     }
     try {
       const { id } = req.params;
       const updatedBand = await this.bandService.updateBand(id, req.body);
-      res.json(updatedBand);
+      return res.json(updatedBand);
     } catch (err) {
-      console.log('Error updating band with PUT: ', err);
-      res.status(500).send('Check your fields..');
+      console.log("Error updating band with PUT: ", err);
+      return res.status(500).send("Check your fields..");
     }
   };
   deleteBand = async (req, res) => {
     const { id } = req.params;
     if (!id) {
-      res.status(400).send('Id not found');
+      return res.status(400).send("Id not found");
     }
     try {
       const deletedBand = await this.bandService.deleteBand(id);
-      res.json(deletedBand);
+      return res.json(deletedBand);
     } catch (error) {
-      console.log('Error deleting band: ', err);
-      res.status(500).send('Check the id');
+      console.log("Error deleting band: ", err);
+      return res.status(500).send("Check the id");
     }
   };
 }

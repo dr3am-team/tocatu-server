@@ -7,7 +7,7 @@ class Controller {
   getUsers = async (req, res) => {
     try {
       const users = await this.service.getUsers();
-      res.json(users);
+      return res.json(users);
     } catch (err) {
       console.log("Error en getUsers", err);
     }
@@ -16,7 +16,7 @@ class Controller {
     try {
       const user = req.body;
       const userAdded = await this.service.addUser(user);
-      res.json(userAdded);
+      return res.json(userAdded);
     } catch (err) {
       console.log("Error adding user", err);
     }
@@ -25,7 +25,7 @@ class Controller {
     try {
       const user = req.body;
       const userEdited = await this.service.editUser(user);
-      res.json(userEdited);
+      return res.json(userEdited);
     } catch (err) {
       console.log("error editing user");
     }
