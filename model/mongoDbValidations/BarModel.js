@@ -30,6 +30,9 @@ const barSchema = new mongoose.Schema({
     type: String,
     default: "bar",
   },
+  eventId: {
+    type: [mongoose.Schema.Types.ObjectId],
+  },
 });
 
 export default mongoose.model("Bar", barSchema);

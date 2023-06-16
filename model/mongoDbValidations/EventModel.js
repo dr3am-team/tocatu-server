@@ -1,4 +1,5 @@
-import mongoose from 'mongoose';
+import { ObjectId } from "bson";
+import mongoose from "mongoose";
 
 const eventSchema = new mongoose.Schema({
   title: {
@@ -28,6 +29,9 @@ const eventSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  bandId: {
+    type: ObjectId,
+  },
 });
 
-export default mongoose.model('Event', eventSchema);
+export default mongoose.model("Event", eventSchema);
