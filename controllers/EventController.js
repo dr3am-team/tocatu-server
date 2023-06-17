@@ -10,7 +10,7 @@ export default class EventController {
   getEvents = async (req, res) => {
     try {
       const events = await this.eventService.getEvents();
-      returnres.json(events);
+      return res.json(events);
     } catch (error) {
       console.error("Error getting events with get", error);
     }
@@ -19,11 +19,11 @@ export default class EventController {
   getEventById = async (req, res) => {
     const { id } = req.params;
     if (!id) {
-      returnres.status(400).send("Empty id");
+      return res.status(400).send("Empty id");
     }
     try {
       const event = await this.eventService.getEventById(id);
-      returnres.json(event);
+      return res.json(event);
     } catch (error) {
       console.error("Error getting event by id get", error);
       returnres.status(500).send("Check id");
@@ -37,7 +37,7 @@ export default class EventController {
     }
     try {
       const newEvent = await this.eventService.createEvent(req.body);
-      returnres.json(newEvent);
+      return res.json(newEvent);
     } catch (error) {
       console.error("Error creating event with post", error);
       res.status(500).send("Check your fields");
