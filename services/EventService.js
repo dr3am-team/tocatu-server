@@ -1,5 +1,5 @@
-import Factory from '../model/DAO/factories/Factory.js';
-import config from '../config.js';
+import Factory from "../model/DAO/factories/Factory.js";
+import config from "../config.js";
 
 export default class EventService {
   constructor() {
