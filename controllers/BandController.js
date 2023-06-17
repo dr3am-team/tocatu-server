@@ -68,4 +68,19 @@ export default class BandController {
       return res.status(500).send("Check the id");
     }
   };
+  loginBand = async (req, res) => {
+    try {
+      const { username, password } = req.body;
+      const band = await this.bandService.getBandByUsername(username, password);
+      if (!band) {
+        return res
+          .status(404)
+          .json({ message: "Usuario o contraseña invalida" });
+      }
+      return res.status(200).json(band);
+    } catch (error) {
+      console.error(error);
+      return res.status(500).send("Check your credentials");
+    }
+  };
 }
