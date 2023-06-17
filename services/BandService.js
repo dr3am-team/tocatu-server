@@ -31,4 +31,23 @@ export default class BandService {
     const deletedBand = await this.bandModel.deleteBand(id);
     return deletedBand;
   };
+  getBandByUsername = async (username, password) => {
+    const band = await this.bandModel.getBandByUsername(username);
+    console.log(band);
+    if (band) {
+      if (band.password === password) {
+        const noPasswordBand = {
+          username: band.username,
+          mail: band.mail,
+          name: band.name,
+          address: band.address,
+          capacity: band.capacity,
+          userType: band.userType,
+        };
+        return noPasswordBand;
+      }
+    } else {
+      return null;
+    }
+  };
 }
