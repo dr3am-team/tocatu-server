@@ -2,7 +2,7 @@ import BandModel from "../../mongoDbValidations/BandModel.js";
 
 export default class BandModelMongo {
   getBands = () => {
-    const bands = BandModel.find().select("-password -__v").exec();
+    const bands = BandModel.find().select("-__v").exec();
     return bands;
   };
 
@@ -26,5 +26,9 @@ export default class BandModelMongo {
   deleteBand = (id) => {
     const deletedBand = BandModel.findByIdAndDelete(id);
     return deletedBand;
+  };
+  getBandByUsername = (username) => {
+    const band = BandModel.findOne({ username }).exec();
+    return band;
   };
 }
