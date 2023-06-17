@@ -1,8 +1,10 @@
+import BarService from "../services/BarService.js";
 import EventService from "../services/EventService.js";
 
 export default class EventController {
   constructor() {
     this.eventService = new EventService();
+    this.barService = new BarService();
   }
 
   //get events, get event by id, create event, update event, delete event
@@ -36,7 +38,14 @@ export default class EventController {
       return res.status(400).send("Empty event object");
     }
     try {
-      const newEvent = await this.eventService.createEvent(req.body);
+      const { event, username } = req.body;
+      const newEvent = await this.eventService.createEvent(event);
+
+      const barUpdated = await this.barService.updateBarByUsername(
+        username,
+        newEvent._id
+      );
+
       return res.json(newEvent);
     } catch (error) {
       console.error("Error creating event with post", error);

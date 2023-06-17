@@ -27,6 +27,10 @@ export default class BarService {
     const updatedBar = await this.barModel.updateBar(id, bar);
     return updatedBar;
   };
+  updateBarByUsername = async (username, _id) => {
+    const updatedBar = await this.barModel.updateBarByUsername(username, _id);
+  };
+
   deleteBar = async (id) => {
     const deletedBar = await this.barModel.deleteBar(id);
     return deletedBar;
