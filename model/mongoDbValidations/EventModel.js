@@ -30,7 +30,7 @@ const eventSchema = new mongoose.Schema({
     required: true
   },
   bandId: {
-    type: ObjectId
+    type: [mongoose.Schema.Types.ObjectId]
   }
 });
 
