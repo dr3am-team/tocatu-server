@@ -26,6 +26,9 @@ const bandSchema = new mongoose.Schema({
     type: String,
     default: "band",
   },
+  eventsSubscribed: {
+    type: [mongoose.Schema.Types.ObjectId],
+  },
 });
 
 export default mongoose.model("Band", bandSchema);
