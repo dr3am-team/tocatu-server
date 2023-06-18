@@ -1,4 +1,4 @@
-import EventModel from '../../mongoDbValidations/EventModel.js';
+import EventModel from "../../mongoDbValidations/EventModel.js";
 
 export default class EventModelMongo {
   getEvents = () => {
@@ -17,8 +17,9 @@ export default class EventModelMongo {
   };
 
   updateEvent = async (id, event) => {
+    console.log(id, event);
     const updatedEvent = await EventModel.findByIdAndUpdate(id, event, {
-      returnDocument: 'after',
+      returnDocument: "after",
     }).exec();
     return updatedEvent;
   };
