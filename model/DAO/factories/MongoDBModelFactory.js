@@ -1,6 +1,7 @@
-import BandModelMongo from '../mongoModels/BandModelMongo.js';
-import EventModelMongo from '../mongoModels/EventModelMongo.js';
-import BarModelMongo from '../mongoModels/BarModelMongo.js';
+import BandModelMongo from "../mongoModels/BandModelMongo.js";
+import EventModelMongo from "../mongoModels/EventModelMongo.js";
+import BarModelMongo from "../mongoModels/BarModelMongo.js";
+import UserModelMongo from "../mongoModels/UserModelMongo.js";
 
 export default class MongoDBModelFactory {
   createBandModel() {
@@ -12,5 +13,7 @@ export default class MongoDBModelFactory {
   createBarModel() {
     return new BarModelMongo();
   }
-  createUserModel() {}
+  createUserModel() {
+    return new UserModelMongo();
+  }
 }
