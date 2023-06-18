@@ -4,28 +4,28 @@ const bandSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
-    unique: true,
+    unique: true
   },
   mail: {
     type: String,
-    required: true,
+    required: true
   },
   password: {
     type: String,
-    required: true,
+    required: true
   },
   style: {
     type: String,
-    required: true,
+    required: true
   },
   name: {
     type: String,
-    required: true,
+    required: true
   },
   userType: {
     type: String,
-    default: "band",
-  },
+    default: "band"
+  }
 });
 
 export default mongoose.model("Band", bandSchema);
