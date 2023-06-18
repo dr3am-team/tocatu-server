@@ -33,7 +33,6 @@ export default class BandService {
   };
   getBandByUsername = async (username, password) => {
     const band = await this.bandModel.getBandByUsername(username);
-    console.log(band);
     if (band) {
       if (band.password === password) {
         const noPasswordBand = {
@@ -42,7 +41,7 @@ export default class BandService {
           name: band.name,
           address: band.address,
           capacity: band.capacity,
-          userType: band.userType,
+          userType: band.userType
         };
         return noPasswordBand;
       }
