@@ -23,7 +23,6 @@ export default class BandModelMongo {
   //   return updatedBand;
   // };
   updateBand = async (id, band) => {
-    console.log("hoalolahola");
     const updateOptions = {
       returnDocument: "after",
     };
