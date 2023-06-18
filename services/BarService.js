@@ -46,6 +46,8 @@ export default class BarService {
           address: bar.address,
           capacity: bar.capacity,
           userType: bar.userType,
+          eventIds: bar.eventId,
+          _id: bar._id
         };
         return noPasswordBar;
       }
