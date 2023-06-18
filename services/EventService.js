@@ -1,5 +1,5 @@
-import Factory from "../model/DAO/factories/Factory.js";
-import config from "../config.js";
+import Factory from '../model/DAO/factories/Factory.js';
+import config from '../config.js';
 
 export default class EventService {
   constructor() {
@@ -25,8 +25,8 @@ export default class EventService {
     return newEvent;
   };
 
-  updateEvent = async (id, band) => {
-    const updatedEvent = await this.eventModel.updateEvent(id, band);
+  updateEvent = async (id, event) => {
+    const updatedEvent = await this.eventModel.updateEvent(id, event);
     return updatedEvent;
   };
 

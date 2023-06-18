@@ -1,7 +1,7 @@
 //import MongoDBModelFactory from "../model/DAO/factories/MongoDBModelFactory.js";
-import MemoryModelFactory from "../model/DAO/factories/MemoryModelFactory.js";
-import Factory from "../model/DAO/factories/Factory.js";
-import config from "../config.js";
+import MemoryModelFactory from '../model/DAO/factories/MemoryModelFactory.js';
+import Factory from '../model/DAO/factories/Factory.js';
+import config from '../config.js';
 
 export default class BandService {
   constructor() {
@@ -41,7 +41,8 @@ export default class BandService {
           name: band.name,
           address: band.address,
           capacity: band.capacity,
-          userType: band.userType
+          userType: band.userType,
+          _id: band._id,
         };
         return noPasswordBand;
       }
