@@ -51,6 +51,21 @@ class Controller {
       return res.status(500).send("Check the id");
     }
   };
+  loginUser = async (req, res) => {
+    try {
+      const { username, password } = req.body;
+      const user = await this.service.getUserByUsername(username, password);
+      if (!user) {
+        return res
+          .status(404)
+          .json({ message: "Usuario o contraseña invalida" });
+      }
+      return res.status(200).json(user);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Check your credentials");
+    }
+  };
 }
 
 export default Controller;

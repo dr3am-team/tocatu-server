@@ -28,4 +28,18 @@ export default class UserService {
     const deletedUser = await this.userModel.deleteUser(id);
     return deletedUser;
   };
+  getUserByUsername = async (username, password) => {
+    const user = await this.userModel.getUserByUsername(username);
+    if (user) {
+      if (user.password === password) {
+        const noPasswordUser = {
+          username: user.username,
+          mail: user.mail,
+        };
+        return noPasswordUser;
+      }
+    } else {
+      return null;
+    }
+  };
 }
