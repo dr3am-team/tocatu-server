@@ -25,6 +25,9 @@ const bandSchema = new mongoose.Schema({
   userType: {
     type: String,
     default: "band"
+  },
+  eventsSubscribed: {
+    type: [mongoose.Schema.Types.ObjectId]
   }
 });
 
