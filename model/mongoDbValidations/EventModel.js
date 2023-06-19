@@ -36,7 +36,7 @@ const eventSchema = new mongoose.Schema({
   bandId: {
     type: mongoose.Schema.Types.ObjectId,
   },
-  usersId: {
+  viewersId: {
     type: [mongoose.Schema.Types.ObjectId],
   },
 });

@@ -36,6 +36,7 @@ export default class UserService {
           username: user.username,
           mail: user.mail,
           userType: user.userType,
+          _id: user._id,
         };
         return noPasswordUser;
       }

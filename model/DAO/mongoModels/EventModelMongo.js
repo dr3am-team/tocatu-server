@@ -16,10 +16,23 @@ export default class EventModelMongo {
     return newEvent.save();
   };
 
+  // updateEvent = async (id, event) => {
+  //   const updatedEvent = await EventModel.findByIdAndUpdate(id, event, {
+  //     returnDocument: "after"
+  //   }).exec();
+  //   return updatedEvent;
+  // };
   updateEvent = async (id, event) => {
-    const updatedEvent = await EventModel.findByIdAndUpdate(id, event, {
-      returnDocument: "after"
-    }).exec();
+    const updateOptions = {
+      returnDocument: "after",
+    };
+    console.log(event);
+    const updatedEvent = await EventModel.findByIdAndUpdate(
+      id,
+      event.viewersId ? { $push: event } : event,
+      updateOptions
+    ).exec();
+    console.log(updatedEvent);
     return updatedEvent;
   };
 
