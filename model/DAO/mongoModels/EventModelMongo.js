@@ -17,9 +17,8 @@ export default class EventModelMongo {
   };
 
   updateEvent = async (id, event) => {
-    console.log(id, event);
     const updatedEvent = await EventModel.findByIdAndUpdate(id, event, {
-      returnDocument: "after",
+      returnDocument: "after"
     }).exec();
     return updatedEvent;
   };
