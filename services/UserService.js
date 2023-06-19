@@ -35,6 +35,7 @@ export default class UserService {
         const noPasswordUser = {
           username: user.username,
           mail: user.mail,
+          userType: user.userType,
         };
         return noPasswordUser;
       }
