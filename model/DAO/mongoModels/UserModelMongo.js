@@ -16,10 +16,24 @@ export default class UserModelMongo {
     return newUser.save();
   };
 
-  editUser = (id, user) => {
-    const updatedUser = UserModel.findByIdAndUpdate(id, user, {
+  // editUser = (id, user) => {
+  //   const updatedUser = UserModel.findByIdAndUpdate(id, user, {
+  //     returnDocument: "after",
+  //   }).exec();
+  //   return updatedUser;
+  // };
+  editUser = async (id, user) => {
+    console.log(user);
+    const updateOptions = {
       returnDocument: "after",
-    }).exec();
+    };
+
+    const updatedUser = await UserModel.findByIdAndUpdate(
+      id,
+      user.eventsSubscribed ? { $push: user } : user,
+      updateOptions
+    ).exec();
+
     return updatedUser;
   };
 

@@ -18,6 +18,9 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: "viewer",
   },
+  eventsSubscribed: {
+    type: [mongoose.Schema.Types.ObjectId],
+  },
 });
 
 export default mongoose.model("User", userSchema);
