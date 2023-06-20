@@ -6,6 +6,10 @@ export default class BarModelMongo {
     return bars;
   };
 
+  getEventsFromBar = () => {
+    
+  }
+
   getBarById = (id) => {
     const bar = BarModel.findById(id).exec();
     return bar;
@@ -18,7 +22,7 @@ export default class BarModelMongo {
 
   updateBar = (id, bar) => {
     const updatedBar = BarModel.findByIdAndUpdate(id, bar, {
-      returnDocument: "after",
+      returnDocument: "after"
     }).exec();
     return updatedBar;
   };
