@@ -6,10 +6,6 @@ export default class BarModelMongo {
     return bars;
   };
 
-  getEventsFromBar = () => {
-    
-  }
-
   getBarById = (id) => {
     const bar = BarModel.findById(id).exec();
     return bar;
