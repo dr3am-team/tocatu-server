@@ -1,9 +1,13 @@
 import EventModel from "../../mongoDbValidations/EventModel.js";
 
 export default class EventModelMongo {
-  getEvents = () => {
-    const events = EventModel.find().select().exec();
-    return events;
+  getEvents = (options) => {
+    const events = EventModel.find();
+
+    if (options.filter) {
+      events.where(options.filter).exists(!!options.exists);
+    }
+    return events.select(options.select).exec();
   };
 
   getEventById = (id) => {
