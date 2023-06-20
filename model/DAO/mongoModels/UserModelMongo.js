@@ -1,4 +1,5 @@
 import UserModel from "../../mongoDbValidations/UserModel.js";
+import mongoose from "mongoose";
 
 export default class UserModelMongo {
   getUsers = () => {
@@ -23,7 +24,6 @@ export default class UserModelMongo {
   //   return updatedUser;
   // };
   editUser = async (id, user) => {
-    console.log(user);
     const updateOptions = {
       returnDocument: "after",
     };
@@ -43,6 +43,13 @@ export default class UserModelMongo {
   };
   getUserByUsername = (username) => {
     const user = UserModel.findOne({ username }).exec();
+    return user;
+  };
+  removeEventIdAsociated = (eventId) => {
+    const user = UserModel.updateMany(
+      { eventsSubscribed: eventId },
+      { $pull: { eventsSubscribed: eventId } }
+    );
     return user;
   };
 }
