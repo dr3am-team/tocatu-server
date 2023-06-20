@@ -47,12 +47,16 @@ export default class BarService {
           capacity: bar.capacity,
           userType: bar.userType,
           eventIds: bar.eventId,
-          _id: bar._id
+          _id: bar._id,
         };
         return noPasswordBar;
       }
     } else {
       return null;
     }
+  };
+  removeEventsIdAsociated = async (id) => {
+    const bar = await this.barModel.removeEventsIdAsociated(id);
+    return bar;
   };
 }

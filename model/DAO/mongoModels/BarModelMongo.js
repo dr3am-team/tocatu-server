@@ -1,4 +1,5 @@
 import BarModel from "../../mongoDbValidations/BarModel.js";
+import mongoose from "mongoose";
 
 export default class BarModelMongo {
   getBars = () => {
@@ -18,7 +19,7 @@ export default class BarModelMongo {
 
   updateBar = (id, bar) => {
     const updatedBar = BarModel.findByIdAndUpdate(id, bar, {
-      returnDocument: "after"
+      returnDocument: "after",
     }).exec();
     return updatedBar;
   };
@@ -39,5 +40,13 @@ export default class BarModelMongo {
       { new: true }
     );
     return bar;
+  };
+  removeEventsIdAsociated = (eventId) => {
+    const updatedBar = BarModel.findOneAndUpdate(
+      { eventId: eventId },
+      { $pull: { eventId: eventId } },
+      { new: true }
+    );
+    return updatedBar;
   };
 }

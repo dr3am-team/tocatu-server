@@ -1,10 +1,13 @@
 import BarService from "../services/BarService.js";
 import EventService from "../services/EventService.js";
-
+import BandService from "../services/BandService.js";
+import UserService from "../services/UserService.js";
 export default class EventController {
   constructor() {
     this.eventService = new EventService();
     this.barService = new BarService();
+    this.bandService = new BandService();
+    this.UserService = new UserService();
   }
 
   //get events, get event by id, create event, update event, delete event
@@ -75,6 +78,13 @@ export default class EventController {
     }
     try {
       const deletedEvent = await this.eventService.deleteEvent(id);
+      if (deletedEvent) {
+        const barUpdated = await this.barService.removeEventsIdAsociated(id);
+        const updatedBand = await this.bandService.removeEventIdAsociated(id);
+        const updatedUser = await this.UserService.removeEventIdAsociated(id);
+        console.log(updatedUser);
+        //user.removeEventsId
+      }
       return res.json(deletedEvent);
     } catch (error) {
       console.log("Error deleting event: ", error);

@@ -44,4 +44,8 @@ export default class UserService {
       return null;
     }
   };
+  removeEventIdAsociated = async (id) => {
+    const updatedUser = await this.userModel.removeEventIdAsociated(id);
+    return updatedUser;
+  };
 }

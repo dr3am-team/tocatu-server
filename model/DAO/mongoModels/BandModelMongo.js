@@ -43,4 +43,12 @@ export default class BandModelMongo {
     const band = BandModel.findOne({ username }).exec();
     return band;
   };
+  removeEventIdAsociated = (eventId) => {
+    const updatedBand = BandModel.findOneAndUpdate(
+      { eventsSubscribed: eventId },
+      { $pull: { eventsSubscribed: eventId } },
+      { new: true }
+    );
+    return updatedBand;
+  };
 }

@@ -1,7 +1,7 @@
 //import MongoDBModelFactory from "../model/DAO/factories/MongoDBModelFactory.js";
-import MemoryModelFactory from '../model/DAO/factories/MemoryModelFactory.js';
-import Factory from '../model/DAO/factories/Factory.js';
-import config from '../config.js';
+import MemoryModelFactory from "../model/DAO/factories/MemoryModelFactory.js";
+import Factory from "../model/DAO/factories/Factory.js";
+import config from "../config.js";
 
 export default class BandService {
   constructor() {
@@ -49,5 +49,9 @@ export default class BandService {
     } else {
       return null;
     }
+  };
+  removeEventIdAsociated = async (id) => {
+    const updatedBand = await this.bandModel.removeEventIdAsociated(id);
+    return updatedBand;
   };
 }
