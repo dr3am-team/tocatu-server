@@ -1,9 +1,9 @@
-import UserModel from "../../mongoDbValidations/UserModel.js";
-import mongoose from "mongoose";
+import UserModel from '../../mongoDbValidations/UserModel.js';
+import mongoose from 'mongoose';
 
 export default class UserModelMongo {
   getUsers = () => {
-    const users = UserModel.find().select("-__v").exec();
+    const users = UserModel.find().select('-__v').exec();
     return users;
   };
 
@@ -25,7 +25,7 @@ export default class UserModelMongo {
   // };
   editUser = async (id, user) => {
     const updateOptions = {
-      returnDocument: "after",
+      returnDocument: 'after',
     };
 
     const updatedUser = await UserModel.findByIdAndUpdate(
