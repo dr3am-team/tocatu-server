@@ -18,7 +18,7 @@ export default class BarModelMongo {
 
   updateBar = (id, bar) => {
     const updatedBar = BarModel.findByIdAndUpdate(id, bar, {
-      returnDocument: "after",
+      returnDocument: "after"
     }).exec();
     return updatedBar;
   };

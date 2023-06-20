@@ -1,9 +1,14 @@
 import EventModel from "../../mongoDbValidations/EventModel.js";
 
 export default class EventModelMongo {
-  getEvents = () => {
-    const events = EventModel.find().select().exec();
-    return events;
+  getEvents = (options) => {
+    let query = EventModel.find();
+    if (options.filter) {
+      query = query.where(options.filter, { $exists: options.exists });
+    }
+    query = query.select(options.select).exec();
+
+    return query;
   };
 
   getEventById = (id) => {
@@ -16,12 +21,6 @@ export default class EventModelMongo {
     return newEvent.save();
   };
 
-  // updateEvent = async (id, event) => {
-  //   const updatedEvent = await EventModel.findByIdAndUpdate(id, event, {
-  //     returnDocument: "after"
-  //   }).exec();
-  //   return updatedEvent;
-  // };
   updateEvent = async (id, event) => {
     const updateOptions = {
       returnDocument: "after"
