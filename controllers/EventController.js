@@ -38,23 +38,26 @@ export default class EventController {
   };
 
   createEvent = async (req, res) => {
-    if (Object.keys(req.body).length <= 0) {
-      return res.status(400).send("Empty event object");
-    }
-    try {
-      const { event, username } = req.body;
-      const newEvent = await this.eventService.createEvent(event);
+    // if (Object.keys(req.body).length <= 0) {
+    //   return res.status(400).send("Empty event object");
+    // }
+    // try {
+    //   const { event, username } = req.body;
+    //   const newEvent = await this.eventService.createEvent(event);
 
-      const barUpdated = await this.barService.updateBarByUsername(
-        username,
-        newEvent._id
-      );
+    //   const barUpdated = await this.barService.updateBarByUsername(
+    //     username,
+    //     newEvent._id
+    //   );
 
-      return res.json(newEvent);
-    } catch (error) {
-      console.error("Error creating event with post", error);
-      res.status(500).send("Check your fields");
-    }
+    //   return res.json(newEvent);
+    // } catch (error) {
+    //   console.error("Error creating event with post", error);
+    //   res.status(500).send("Check your fields");
+    // }
+    console.log(req.file);
+
+    res.send("holi");
   };
 
   updateEvent = async (req, res) => {
