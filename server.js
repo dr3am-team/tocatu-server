@@ -6,6 +6,8 @@ import config from "./config.js";
 import BandRoute from "./routes/BandRoute.js";
 import EventRoute from "./routes/EventRoute.js";
 import BarRoute from "./routes/BarRoute.js";
+import dotenv from 'dotenv'
+dotenv.config()
 
 const PORT = config.PORT;
 

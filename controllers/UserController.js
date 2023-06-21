@@ -1,4 +1,5 @@
 import UserService from '../services/UserService.js';
+import nodemailer from '../utils/nodemailer.js';
 
 class Controller {
   constructor() {
@@ -31,6 +32,7 @@ class Controller {
     }
     try {
       const newUser = await this.service.createUser(req.body);
+      nodemailer.useNodemailer({receiver: newUser.mail, username: newUser.username})
       return res.json(newUser);
     } catch (error) {
       console.error('Error creating user with post', error);
