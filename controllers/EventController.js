@@ -2,6 +2,7 @@ import BarService from "../services/BarService.js";
 import EventService from "../services/EventService.js";
 import BandService from "../services/BandService.js";
 import UserService from "../services/UserService.js";
+import { resolve } from "path";
 export default class EventController {
   constructor() {
     this.eventService = new EventService();
@@ -54,6 +55,17 @@ export default class EventController {
     } catch (error) {
       console.error("Error creating event with post", error);
       res.status(500).send("Check your fields");
+    }
+  };
+  uploadImage = async (req, res) => {
+    console.log(req.file);
+    try {
+      await this.eventService.updateEvent(req.params.id, {
+        flyer: req.file.filename,
+      });
+      return res.send("imagen");
+    } catch (error) {
+      console.error(error);
     }
   };
 
