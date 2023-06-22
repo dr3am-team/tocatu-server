@@ -6,8 +6,10 @@ import config from "./config.js";
 import BandRoute from "./routes/BandRoute.js";
 import EventRoute from "./routes/EventRoute.js";
 import BarRoute from "./routes/BarRoute.js";
-import dotenv from 'dotenv'
-dotenv.config()
+import dotenv from "dotenv";
+import PublicRoute from "./routes/PublicRoute.js";
+
+dotenv.config();
 
 const PORT = config.PORT;
 
@@ -15,11 +17,13 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+app.use(express.static("public"));
 
 app.use("/api/users", new UserRoute().start());
 app.use("/api/bands", new BandRoute().start());
 app.use("/api/events", new EventRoute().start());
 app.use("/api/bars", new BarRoute().start());
+app.use("/public", PublicRoute, express.static("public"));
 
 if (config.MODO_PERSISTENCIA() === "MONGODB") {
   //IIFE (Immediately Invoked Function Expression) para usar async/await en vez de .then
