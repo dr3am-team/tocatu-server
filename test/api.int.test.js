@@ -4,6 +4,7 @@ import generador from "./generador/producto.js";
 
 import Server from "../server.js";
 
+//This test suit needs to have the server off
 describe("Test API REST ful: Test Interno", () => {
   describe("GET", () => {
     it("Debería retornar un status 200", async () => {

@@ -6,6 +6,8 @@ import config from "../config.js"
 
 const request = supertest(`http://127.0.0.1:${config.PORT}`)
 
+
+//This test suit needs to have the server on
 describe('Test API REST ful: Test Externo', () => {
 
     describe('GET', () => {
