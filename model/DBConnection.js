@@ -11,10 +11,7 @@ class DBConnection {
   static conectar = async () => {
     try {
       if (config.MODO_PERSISTENCIA() === "MONGODB") {
-        this.client = new MongoClient(config.MONGO_URL, {
-          useNewUrlParser: true,
-          useUnifiedTopology: true,
-        });
+        this.client = new MongoClient(config.MONGO_URL);
         await this.client.connect();
       }
 
