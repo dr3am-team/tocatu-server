@@ -2,12 +2,16 @@
   "name": "tocatu-server",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "watch": "nodemon server.js"
+    "test": "mocha test/*.test.js --timeout 10000",
+    "start": "node index.js",
+    "watch": "nodemon index.js",
+    "test-manual": "node test/api.prueba.manual.js",
+    "test-gen-prod" : "mocha test/producto.test.js --timeout 10000",
+    "test-api-ext" : "mocha test/api.ext.test.js --timeout 10000",
+    "test-api-int" : "mocha test/api.int.test.js --timeout 10000"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +29,7 @@
     "supertest": "^6.3.3"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.0.2",
     "nodemon": "^2.0.22"
   }
 }
