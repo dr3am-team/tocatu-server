@@ -1,5 +1,4 @@
 import UserModel from '../../mongoDbValidations/UserModel.js';
-import mongoose from 'mongoose';
 
 export default class UserModelMongo {
   getUsers = () => {

@@ -1,21 +1,21 @@
 //https://www.npmjs.com/package/mongodb
 
-import { MongoClient } from "mongodb";
+import { connect } from "mongoose";
 import config from "../config.js";
 
 class DBConnection {
   static client = null;
   static connectOk = false;
-  static db = null;
 
   static conectar = async () => {
     try {
       if (config.MODO_PERSISTENCIA() === "MONGODB") {
-        this.client = new MongoClient(config.MONGO_URL);
-        await this.client.connect();
+        
+          console.log("Conectando a la base de datos...");
+         this.client = await connect(`${config.MONGO_URL}/${config.BASE}`);
+          console.log("Connected to Tocatu");
       }
 
-      this.db = this.client.db(config.BASE);
       this.connectOk = true;
     } catch (error) {
       console.log(`Error en la conexión de base de datos: ${error.message}`);
