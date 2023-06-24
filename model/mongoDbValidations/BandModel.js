@@ -1,10 +1,14 @@
 import mongoose from "mongoose";
 
+import { nameError, passwordError } from './validations.js';
+
+
 const bandSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
+    minlength: [3, nameError]
   },
   mail: {
     type: String,
@@ -12,7 +16,8 @@ const bandSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: true
+    required: true,
+    minlength: [3, passwordError]
   },
   style: {
     type: String,
@@ -20,7 +25,8 @@ const bandSchema = new mongoose.Schema({
   },
   name: {
     type: String,
-    required: true
+    required: true,
+    minlength: [3, nameError]
   },
   userType: {
     type: String,

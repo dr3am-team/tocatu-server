@@ -1,10 +1,13 @@
-import { ObjectId } from "bson";
 import mongoose from "mongoose";
+
+import { validateCapacity, capacityError, nameError, addressError, validatePrice, priceError } from './validations.js';
+
 
 const eventSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
+    minlength: [3, nameError]
   },
   date: {
     type: Date,
@@ -16,6 +19,10 @@ const eventSchema = new mongoose.Schema({
   capacity: {
     type: Number,
     required: true,
+    validate: {
+      validator: validateCapacity,
+      message: capacityError
+    }
   },
   description: {
     type: String,
@@ -24,6 +31,7 @@ const eventSchema = new mongoose.Schema({
   address: {
     type: String,
     required: true,
+    minlength: [3, addressError]
   },
   barName: {
     type: String,
@@ -32,6 +40,10 @@ const eventSchema = new mongoose.Schema({
   price: {
     type: Number,
     required: true,
+    validate: {
+      validator: validatePrice,
+      message: priceError
+    }
   },
   bandId: {
     type: mongoose.Schema.Types.ObjectId,
