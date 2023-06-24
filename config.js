@@ -1,4 +1,4 @@
-const PORT = 8080;
+const PORT = 3000;
 
 /**
  * Devuelve el modo de persistencia especificado, que por defecto es 'MONGODB'.

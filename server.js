@@ -1,41 +1,59 @@
 import express from "express";
-import UserRoute from "./routes/UserRoute.js";
 import cors from "cors";
-import { connect } from "mongoose";
 import config from "./config.js";
+import dotenv from "dotenv";
+
+import UserRoute from "./routes/UserRoute.js";
 import BandRoute from "./routes/BandRoute.js";
 import EventRoute from "./routes/EventRoute.js";
 import BarRoute from "./routes/BarRoute.js";
-import dotenv from "dotenv";
 import PublicRoute from "./routes/PublicRoute.js";
+import DBConnection from "./model/DBConnection.js";
 
-dotenv.config();
+class Server {
+  constructor(persistencia) {
+    this.app = express();
+    this.port = config.PORT;
+    this.persistencia = persistencia;
+  }
 
-const PORT = config.PORT;
+  async start() {
+    dotenv.config();
 
-const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(cors());
-app.use(express.static("public"));
+    /* EXPRESS CONFIG */
+    this.app.use(express.json());
+    this.app.use(express.urlencoded({ extended: true }));
+    this.app.use(cors());
+    this.app.use(express.static("public"));
 
-app.use("/api/users", new UserRoute().start());
-app.use("/api/bands", new BandRoute().start());
-app.use("/api/events", new EventRoute().start());
-app.use("/api/bars", new BarRoute().start());
-app.use("/public", PublicRoute, express.static("public"));
+    /* API REST ful */
+    this.app.use("/api/users", new UserRoute().start());
+    this.app.use("/api/bands", new BandRoute().start());
+    this.app.use("/api/events", new EventRoute().start());
+    this.app.use("/api/bars", new BarRoute().start());
+    this.app.use("/public", PublicRoute, express.static("public"));
 
-if (config.MODO_PERSISTENCIA() === "MONGODB") {
-  //IIFE (Immediately Invoked Function Expression) para usar async/await en vez de .then
-  (async () => {
-    await connect(`${config.MONGO_URL}/${config.BASE}`);
-    console.log("Connected to Tocatu");
-  })();
+    /* DBConnection conectar */
+    await DBConnection.conectar();
+
+    const PORT = this.port;
+    this.server = this.app.listen(PORT, () =>
+      console.log(
+        `Servidor http express escuchando en http://localhost:${PORT}`
+      )
+    );
+    this.server.on("error", (error) =>
+      console.log(`Error en el servidor: ${error.message}`)
+    );
+
+    return this.app
+  }
+
+  async stop() {
+    this.server.close()
+    await DBConnection.desconectar()
+}
 }
 
-const server = app.listen(PORT, () =>
-  console.log(`Servidor http express escuchando en http://localhost:${PORT}`)
-);
-server.on("error", (error) =>
-  console.log("Error en servidor: " + error.message)
-);
+export default Server
+
