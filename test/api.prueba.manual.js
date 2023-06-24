@@ -8,12 +8,10 @@ const pruebaServidorConSuperTest = async () => {
     const request = supertest(url);
 
     const rta = await request.get("/");
-    console.log(rta ? "true" : "false");
     const { status, body } = rta;
 
     console.log("status code", status);
     console.log("body", body);
-    
   } catch (error) {
     console.log("error:", error.message);
   }

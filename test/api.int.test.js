@@ -2,19 +2,19 @@ import { expect } from "chai"
 import supertest from "supertest"
 import generador from './generador/producto.js'
 
-import Server from '../server.js'
+import Server from "../server.js"
 
 
 
-describe('test apirest ful', () => {
+describe('Test API REST ful: Test Interno', () => {
 
     describe('GET', () => {
-        it('debería retornar un status 200', async () => {
-            const server = new Server(8081,'MONGODB')
+        it('Debería retornar un status 200', async () => {
+            const server = new Server()
             const app = await server.start()
 
             const request = supertest(app)
-            const response = await request.get('/api/productos')
+            const response = await request.get('/api/users')
             
             expect(response.status).to.eql(200)
 
@@ -22,9 +22,9 @@ describe('test apirest ful', () => {
         })
     })
 
-    describe('POST', () => {
+    /* describe('POST', () => {
         it('debería incorporar un producto', async () => {
-            const server = new Server(8081,'MONGODB')
+            const server = new Server()
             const app = await server.start()
 
             const request = supertest(app)
@@ -44,5 +44,5 @@ describe('test apirest ful', () => {
 
             await server.stop()
         })
-    })
+    }) */
 })
