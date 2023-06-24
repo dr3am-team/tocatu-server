@@ -1,48 +1,45 @@
-import { expect } from "chai"
-import supertest from "supertest"
-import generador from './generador/producto.js'
+import { expect } from "chai";
+import supertest from "supertest";
+import generador from "./generador/producto.js";
 
-import Server from "../server.js"
+import Server from "../server.js";
 
+describe("Test API REST ful: Test Interno", () => {
+  describe("GET", () => {
+    it("Debería retornar un status 200", async () => {
+      const server = new Server();
+      const app = await server.start();
 
+      const request = supertest(app);
+      const response = await request.get("/api/users");
 
-describe('Test API REST ful: Test Interno', () => {
+      expect(response.status).to.eql(200);
 
-    describe('GET', () => {
-        it('Debería retornar un status 200', async () => {
-            const server = new Server()
-            const app = await server.start()
+      await server.stop();
+    });
+  });
 
-            const request = supertest(app)
-            const response = await request.get('/api/users')
-            
-            expect(response.status).to.eql(200)
+  describe("POST", () => {
+    it("Debería agregar un usuario", async () => {
+      const server = new Server();
+      const app = await server.start();
 
-            await server.stop()
-        })
-    })
+      const request = supertest(app);
 
-    /* describe('POST', () => {
-        it('debería incorporar un producto', async () => {
-            const server = new Server()
-            const app = await server.start()
+      const user = generador.get();
+      console.log(user);
 
-            const request = supertest(app)
+      const response = await request.post("/api/users").send(user);
+      expect(response.status).to.eql(200);
 
-            const producto = generador.get()
-            console.log(producto)
-            
-            const response = await request.post('/api/productos').send(producto)
-            expect(response.status).to.eql(200)
+      const userResponse = response.body;
+      expect(userResponse).to.include.keys("username", "password", "mail");
 
-            const prod = response.body
-            expect(prod).to.include.keys('nombre','precio','stock')
-            
-            expect(prod.nombre).to.eql(producto.nombre)
-            expect(prod.precio).to.eql(producto.precio)
-            expect(prod.stock).to.eql(producto.stock)
+      expect(userResponse.username).to.eql(user.username);
+      expect(userResponse.password).to.eql(user.password);
+      expect(userResponse.mail).to.eql(user.mail);
 
-            await server.stop()
-        })
-    }) */
-})
+      await server.stop();
+    });
+  });
+});
