@@ -1,6 +1,6 @@
 //https://www.npmjs.com/package/mongodb
 
-import { connect } from "mongoose";
+import mongoose, { connect } from "mongoose";
 import config from "../config.js";
 
 class DBConnection {
@@ -24,7 +24,8 @@ class DBConnection {
 
   static desconectar = async () => {
     if (!this.connectOk) return;
-    await this.client.close();
+    // TODO - Revisar que el cierre de la conexión sea el apropiado.
+    await mongoose.connection.close();
     this.connectOk = false;
   };
 }
