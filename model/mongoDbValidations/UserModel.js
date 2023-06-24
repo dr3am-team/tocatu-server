@@ -1,14 +1,19 @@
 import mongoose from "mongoose";
 
+import { validateCapacity, capacityError, nameError, addressError, passwordError } from './validations.js';
+
+
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
-    // unique: true,
+    unique: true,
+    minlength: [3, nameError]
   },
   password: {
     type: String,
     required: true,
+    minlength: [3, passwordError]
   },
   mail: {
     type: String,
