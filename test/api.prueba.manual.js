@@ -13,6 +13,7 @@ const pruebaServidorConSuperTest = async () => {
 
     console.log("status code", status);
     console.log("body", body);
+    
   } catch (error) {
     console.log("error:", error.message);
   }
