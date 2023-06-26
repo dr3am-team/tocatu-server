@@ -9,8 +9,7 @@
     "start": "node index.js",
     "watch": "nodemon index.js",
     "test-manual": "node test/api.prueba.manual.js",
-    "test-api-ext" : "mocha test/api.ext.test.js --timeout 10000",
-    "test-api-int" : "mocha test/api.int.test.js --timeout 10000"
+    "test-api-int": "mocha test/api.int.test.js --timeout 10000"
   },
   "keywords": [],
   "author": "",
