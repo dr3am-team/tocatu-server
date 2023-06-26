@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import supertest from 'supertest';
-import generador from './generador/producto.js';
+import generador from './generador/user.js';
 
 import Server from '../server.js';
 
