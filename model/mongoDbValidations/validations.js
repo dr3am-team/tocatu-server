@@ -1,3 +1,5 @@
+import { EMAIL_REGEX } from "../../utils/constants";
+
 /* CAPACITY */
 export function validateCapacity(value) {
   return value > 0 && value < 1000000;
@@ -19,15 +21,13 @@ export function validatePrice(value) {
   return value > 0 && value < 10000000;
 }
 
-export const priceError = "Los límites de capacidad son incorrectos";
+export const priceError = "El precio es incorrecto";
 
-// export default  {
-//   validateCapacity,
-//   capacityError,
-//   nameError,
-//   addressError,
-//   passwordError,
-//   validatePrice,
-//   priceError,
-// };
+/* EMAIL */
+export function validateMail(email) {
+  return EMAIL_REGEX.test(email)
+}
+export const mailError = "El formato del mail es incorrecto";
+
+
 

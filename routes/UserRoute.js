@@ -40,7 +40,7 @@ class Router {
      *     User:
      *       type: object
      *       required:
-     *         - email
+     *         - mail
      *         - username
      *         - password
      *       properties:

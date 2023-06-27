@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-import { validateCapacity, capacityError, nameError, addressError, passwordError } from './validations.js';
+import { validateCapacity, capacityError, nameError, addressError, passwordError , mailError, validateMail} from './validations.js';
 
 
 const barSchema = new mongoose.Schema({
@@ -13,6 +13,10 @@ const barSchema = new mongoose.Schema({
   mail: {
     type: String,
     required: true,
+    validate: {
+      validator: validateMail,
+      message: mailError
+    }
   },
   password: {
     type: String,

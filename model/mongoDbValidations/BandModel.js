@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-import { nameError, passwordError } from './validations.js';
+import { nameError, passwordError, mailError, validateMail } from './validations.js';
 
 
 const bandSchema = new mongoose.Schema({
@@ -12,7 +12,11 @@ const bandSchema = new mongoose.Schema({
   },
   mail: {
     type: String,
-    required: true
+    required: true,
+    validate: {
+      validator: validateMail,
+      message: mailError
+    }
   },
   password: {
     type: String,
