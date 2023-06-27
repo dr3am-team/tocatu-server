@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-import { validateCapacity, capacityError, nameError, addressError, passwordError } from './validations.js';
+import { nameError, passwordError } from "./validations.js";
 
 
 const userSchema = new mongoose.Schema({
@@ -17,15 +17,15 @@ const userSchema = new mongoose.Schema({
   },
   mail: {
     type: String,
-    required: true,
+    required: true
   },
   userType: {
     type: String,
-    default: "viewer",
+    default: "viewer"
   },
   eventsSubscribed: {
-    type: [mongoose.Schema.Types.ObjectId],
-  },
+    type: [mongoose.Schema.Types.ObjectId]
+  }
 });
 
 export default mongoose.model("User", userSchema);
