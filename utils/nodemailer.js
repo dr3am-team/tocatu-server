@@ -1,7 +1,4 @@
 import nodemailer from "nodemailer";
-import dotenv from "dotenv";
-
-dotenv.config();
 
 async function useNodemailer(
   options = { sender: "Tocatu<tocatu98@gmail.com>" }

@@ -1,6 +1,8 @@
 import { expect } from "chai";
 import generador from "./generador/generador.js";
 import nodemailer from "../utils/nodemailer.js";
+import dotenv from "dotenv";
+dotenv.config();
 
 const mailOptions = generador.getMail();
 describe("NODEMAILER TEST", () => {
