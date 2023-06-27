@@ -35,6 +35,7 @@ class Router {
      *           type: ObjectId
      *         username:
      *           type: string
+     *           minimum: 3
      *         mail:
      *           type: string
      *         name:
@@ -47,6 +48,8 @@ class Router {
      *           type: string
      *         eventId:
      *           type: array
+     *           items:
+     *            type: ObjectId
      *       example:
      *         id: 649aebb3bd35f0c731b07f3e
      *         username: bar2852
@@ -54,7 +57,7 @@ class Router {
      *         name: "El bar"
      *         capacity: 200
      *         userType: bar
-     *         eventId: ["649aebb3bd35f0c731b07f3e"]
+     *         eventId: "649aebb3bd35f0c731b07f3e"
      */
 
     this.router.get("/", this.controller.getBars);

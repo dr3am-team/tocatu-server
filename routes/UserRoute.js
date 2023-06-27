@@ -49,6 +49,7 @@ class Router {
      *           default: example@example.com
      *         username:
      *           type: string
+     *           minimum: 3
      *           default: example
      *         password:
      *           type: string
