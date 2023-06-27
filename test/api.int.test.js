@@ -1,7 +1,6 @@
-import { expect } from 'chai';
-import supertest from 'supertest';
-import generador from './generador/user.js';
-
+import { expect } from "chai";
+import supertest from "supertest";
+import generador from "./generador/generador.js";
 import Server from '../server.js';
 
 //This test suit needs to have the server off
