@@ -1,22 +1,17 @@
-import { faker } from '@faker-js/faker/locale/en'
+import { faker } from "@faker-js/faker/locale/en";
 
+const getMail = (_) => ({
+  receiver: faker.internet.email(),
+  username: faker.person.firstName(),
+});
 
-const getMail = _ => ({
-    receiver: faker.internet.email(),
-    username: faker.person.firstName(),
-})
-
-
-
-const get = _ => ({
-    username: faker.person.firstName(),
-    password: faker.person.fullName(),
-    mail: faker.internet.email()
-})
-
-//console.log(get())
+const get = (_) => ({
+  username: faker.person.firstName(),
+  password: faker.person.fullName(),
+  mail: faker.internet.email(),
+});
 
 export default {
-    getMail,
-    get
-}
+  getMail,
+  get,
+};

@@ -4,8 +4,15 @@ import nodemailer from "../utils/nodemailer.js";
 
 const mailOptions = generador.getMail();
 describe("NODEMAILER TEST", () => {
+  describe("Validación del mail", () => {
+    it("Debería validar un mail correcto:", () => {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      expect(mailOptions.receiver).to.match(emailRegex);
+    });
+  });
   describe("Envío del mail:", () => {
-    it("Debería enviar un mail", async () => {
+    it("Debería enviar un mail:", async () => {
       try {
         const mailEnviado = await nodemailer.useNodemailer(mailOptions);
         expect(mailEnviado.accepted == mailOptions.receiver).to.be.true;
@@ -15,14 +22,4 @@ describe("NODEMAILER TEST", () => {
       }
     });
   });
-
-describe('Email Validation', () => {
-  it('should validate a well-formatted email address', () => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    expect(mailOptions.receiver).to.match(emailRegex);
-  });
-
-});
-
 });

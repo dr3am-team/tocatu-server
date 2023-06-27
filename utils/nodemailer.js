@@ -1,9 +1,11 @@
 import nodemailer from "nodemailer";
-import dotenv from 'dotenv'
+import dotenv from "dotenv";
 
-dotenv.config()
+dotenv.config();
 
-async function useNodemailer(options = { sender: "Tocatu<tocatu98@gmail.com>" }) {
+async function useNodemailer(
+  options = { sender: "Tocatu<tocatu98@gmail.com>" }
+) {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -21,9 +23,9 @@ async function useNodemailer(options = { sender: "Tocatu<tocatu98@gmail.com>" })
 
   const result = await transporter.sendMail(mailOptions);
 
-  console.log('mail', result.response);
+  console.log("mail", result.response);
 
-  return result
+  return result;
 }
 
 export default { useNodemailer };
