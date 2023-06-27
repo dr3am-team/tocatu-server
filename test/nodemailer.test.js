@@ -1,16 +1,15 @@
 import { expect } from "chai";
-import generador from "./generador/generador.js";
-import nodemailer from "../utils/nodemailer.js";
 import dotenv from "dotenv";
 dotenv.config();
+import generador from "./generador/generador.js";
+import nodemailer from "../utils/nodemailer.js";
+import { EMAIL_REGEX } from "../utils/constants.js";
 
 const mailOptions = generador.getMail();
 describe("NODEMAILER TEST", () => {
   describe("Validación del mail", () => {
     it("Debería validar un mail correcto:", () => {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-      expect(mailOptions.receiver).to.match(emailRegex);
+      expect(mailOptions.receiver).to.match(EMAIL_REGEX);
     });
   });
   describe("Envío del mail:", () => {

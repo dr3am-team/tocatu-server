@@ -1,4 +1,5 @@
 import BandService from "../services/BandService.js";
+import nodemailer from "../utils/nodemailer.js";
 
 export default class BandController {
   constructor() {
@@ -34,6 +35,12 @@ export default class BandController {
     }
     try {
       const newBand = await this.bandService.createBand(req.body);
+      if (newBand._id && newBand.mail) {
+        nodemailer.useNodemailer({
+          receiver: newBand.mail,
+          username: newBand.username
+        });
+      }
       return res.json(newBand);
     } catch (error) {
       console.error("Error creating band with post");

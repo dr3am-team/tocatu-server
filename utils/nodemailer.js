@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import { EMAIL_REGEX } from "./constants.js";
 
 async function useNodemailer(
   options = { sender: "Tocatu<tocatu98@gmail.com>" }
@@ -7,20 +8,25 @@ async function useNodemailer(
     service: "gmail",
     auth: {
       user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_PASSWORD,
-    },
+      pass: process.env.GMAIL_PASSWORD
+    }
   });
 
   const mailOptions = {
     from: `${options.sender}`,
     to: options?.receiver,
     subject: "Bienvenido a Tocatu",
-    text: `${options?.username}, gracias por registrarte en Tocatu 😀`,
+    text: `${options?.username}, gracias por registrarte en Tocatu 😀`
   };
 
-  const result = await transporter.sendMail(mailOptions);
+  let result = null;
 
-  console.log("mail", result.response);
+  if (EMAIL_REGEX.test(options.receiver)) {
+    result = await transporter.sendMail(mailOptions);
+    console.log("mail", result.response);
+  } else {
+    console.log("Destinatario inválido");
+  }
 
   return result;
 }
