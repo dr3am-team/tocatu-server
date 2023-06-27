@@ -61,7 +61,7 @@ export default class EventController {
     console.log(req.file);
     try {
       await this.eventService.updateEvent(req.params.id, {
-        flyer: req.file.filename,
+        flyer: req.file.filename
       });
       return res.send("imagen");
     } catch (error) {
@@ -94,8 +94,6 @@ export default class EventController {
         const barUpdated = await this.barService.removeEventsIdAsociated(id);
         const updatedBand = await this.bandService.removeEventIdAsociated(id);
         const updatedUser = await this.UserService.removeEventIdAsociated(id);
-        console.log(updatedUser);
-        //user.removeEventsId
       }
       return res.json(deletedEvent);
     } catch (error) {

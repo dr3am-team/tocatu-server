@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 
 export default class BarModelMongo {
   getBars = () => {
-    const bars = BarModel.find().select().exec();
+    const bars = BarModel.find().select("-password").exec();
     return bars;
   };
 
@@ -19,7 +19,7 @@ export default class BarModelMongo {
 
   updateBar = (id, bar) => {
     const updatedBar = BarModel.findByIdAndUpdate(id, bar, {
-      returnDocument: "after",
+      returnDocument: "after"
     }).exec();
     return updatedBar;
   };
