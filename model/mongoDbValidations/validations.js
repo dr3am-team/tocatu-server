@@ -25,9 +25,6 @@ export const priceError = "El precio es incorrecto";
 
 /* EMAIL */
 export function validateMail(email) {
-  return EMAIL_REGEX.test(email)
+  return EMAIL_REGEX.test(email);
 }
 export const mailError = "El formato del mail es incorrecto";
-
-
-

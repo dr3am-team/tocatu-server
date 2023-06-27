@@ -11,8 +11,6 @@ export default class EventController {
     this.UserService = new UserService();
   }
 
-  //get events, get event by id, create event, update event, delete event
-
   getEvents = async (req, res) => {
     const options = { ...req.query };
 
@@ -46,10 +44,7 @@ export default class EventController {
       const { event, username } = req.body;
       const newEvent = await this.eventService.createEvent(event);
 
-      const barUpdated = await this.barService.updateBarByUsername(
-        username,
-        newEvent._id
-      );
+      await this.barService.updateBarByUsername(username, newEvent._id);
 
       return res.json(newEvent);
     } catch (error) {

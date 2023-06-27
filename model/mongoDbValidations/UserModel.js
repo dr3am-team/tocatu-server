@@ -1,7 +1,11 @@
 import mongoose from "mongoose";
 
-import { nameError, passwordError, validateMail, mailError } from "./validations.js";
-
+import {
+  nameError,
+  passwordError,
+  validateMail,
+  mailError
+} from "./validations.js";
 
 const userSchema = new mongoose.Schema({
   username: {

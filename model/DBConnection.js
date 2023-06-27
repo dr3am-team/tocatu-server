@@ -8,10 +8,9 @@ class DBConnection {
   static conectar = async () => {
     try {
       if (config.MODO_PERSISTENCIA() === "MONGODB") {
-        
-          console.log("Conectando a la base de datos...");
-         this.client = await connect(`${config.MONGO_URL}/${config.BASE}`);
-          console.log("Connected to Tocatu");
+        console.log("Conectando a la base de datos...");
+        this.client = await connect(`${config.MONGO_URL}/${config.BASE}`);
+        console.log("Connected to Tocatu");
       }
 
       this.connectOk = true;

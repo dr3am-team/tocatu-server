@@ -33,7 +33,6 @@ export default class BarModelMongo {
     return bar;
   };
   updateBarByUsername = (username, id) => {
-    //TODO: VALIDAR EVENTO
     const bar = BarModel.findOneAndUpdate(
       { username },
       { $push: { eventId: id } },

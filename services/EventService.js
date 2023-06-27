@@ -8,8 +8,6 @@ export default class EventService {
     ).createEventModel();
   }
 
-  //get events, get event by id, create event, update event, delete event
-
   getEvents = async (options) => {
     const events = await this.eventModel.getEvents(options);
     return events;

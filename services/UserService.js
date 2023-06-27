@@ -1,5 +1,3 @@
-//import MongoDBModelFactory from "../model/DAO/factories/MongoDBModelFactory.js";
-import MemoryModelFactory from "../model/DAO/factories/MemoryModelFactory.js";
 import Factory from "../model/DAO/factories/Factory.js";
 import config from "../config.js";
 
@@ -36,7 +34,7 @@ export default class UserService {
           username: user.username,
           mail: user.mail,
           userType: user.userType,
-          _id: user._id,
+          _id: user._id
         };
         return noPasswordUser;
       }

@@ -16,12 +16,6 @@ export default class UserModelMongo {
     return newUser.save();
   };
 
-  // editUser = (id, user) => {
-  //   const updatedUser = UserModel.findByIdAndUpdate(id, user, {
-  //     returnDocument: "after",
-  //   }).exec();
-  //   return updatedUser;
-  // };
   editUser = async (id, user) => {
     const updateOptions = {
       returnDocument: 'after',

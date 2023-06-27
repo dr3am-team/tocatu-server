@@ -5,10 +5,7 @@ import config from "../config.js";
 
 export default class BarService {
   constructor() {
-    //this.bandModel = new MongoDBModelFactory().createBandModel();
-    //this.bandModel = new MemoryModelFactory().createBandModel();
-
-    this.barModel = Factory.get(config.MODO_PERSISTENCIA()).createBarModel();
+   this.barModel = Factory.get(config.MODO_PERSISTENCIA()).createBarModel();
   }
 
   getBars = async () => {
