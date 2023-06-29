@@ -34,4 +34,4 @@ npm install
 npm run start
 ```
 
-En la carpeta `postman` ubicada en la raíz del proyecto se encuentra un archivo `.json` que puede ser importado en el mismo programa, para obtener una colección con las rutas disponibles en el proyecto.
+En la carpeta `postman` ubicada en la raíz del proyecto se encuentra un archivo `tocatu_postman_collection.json` que puede ser importado en el mismo programa, para obtener una colección con las rutas disponibles en el proyecto.
