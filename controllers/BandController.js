@@ -33,6 +33,7 @@ export default class BandController {
     if (Object.keys(req.body).length <= 0) {
       return res.status(400).send("Empty object");
     }
+
     try {
       const newBand = await this.bandService.createBand(req.body);
       if (newBand._id && newBand.mail) {

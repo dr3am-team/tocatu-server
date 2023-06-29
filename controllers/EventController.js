@@ -41,11 +41,10 @@ export default class EventController {
       return res.status(400).send("Empty event object");
     }
     try {
+      console.log(req.body);
       const { event, username } = req.body;
       const newEvent = await this.eventService.createEvent(event);
-
       await this.barService.updateBarByUsername(username, newEvent._id);
-
       return res.json(newEvent);
     } catch (error) {
       console.error("Error creating event with post", error);
@@ -53,14 +52,14 @@ export default class EventController {
     }
   };
   uploadImage = async (req, res) => {
-    console.log(req.file);
     try {
       await this.eventService.updateEvent(req.params.id, {
         flyer: req.file.filename
       });
-      return res.send("imagen");
+      return res.send("Imagen subida correctamente");
     } catch (error) {
       console.error(error);
+      return res.sendStatus(500);
     }
   };
 
