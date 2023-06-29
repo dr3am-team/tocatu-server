@@ -1,0 +1,321 @@
+{
+	"info": {
+		"_postman_id": "a28a9654-60be-4134-b045-fed43031084c",
+		"name": "Tocatu Entrega",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "12120683"
+	},
+	"item": [
+		{
+			"name": "Bands",
+			"item": [
+				{
+					"name": "Get All bands",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{host}}/api/bands"
+					},
+					"response": []
+				},
+				{
+					"name": "Get band by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{host}}/api/bands/648f9741f68b3e0ba258215a"
+					},
+					"response": []
+				},
+				{
+					"name": "Create band",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "   //structure of the band\r\n   {\r\n    \"username\": \"KISS\",\r\n    \"mail\": \"KISS@KISS.com\",\r\n    \"password\": \"KISS\",\r\n    \"style\": \"Rock\",\r\n    \"name\": \"KISS\"\r\n   }\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{host}}/api/bands"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Band by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{host}}/api/bands/6484d21ad6a2c04dab946345"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Band",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"sinatra5555\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{host}}/api/bands/648f9741f68b3e0ba258215a"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bars",
+			"item": [
+				{
+					"name": "Get all bars",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{host}}/api/bars"
+					},
+					"response": []
+				},
+				{
+					"name": "Create bar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"charlone\",\r\n  \"mail\": \"charlone@charlone.charlone\",\r\n  \"password\": \"charlone123\",\r\n  \"name\": \"charlone\",\r\n  \"address\": \"charlone\",\r\n  \"capacity\": 111\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{host}}/api/bars"
+					},
+					"response": []
+				},
+				{
+					"name": "Get bar by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{host}}/api/bars/648a4e85503037ad417a1ff7"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete bar by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{host}}/api/bars/da"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Event",
+			"item": [
+				{
+					"name": "Get all events",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{host}}/api/events"
+					},
+					"response": []
+				},
+				{
+					"name": "Create event",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"AAAAAAAAAA\",\r\n    \"date\": \"12/3/23\",\r\n    \"flyer\": \"eaea\",\r\n    \"capacity\": 100,\r\n    \"address\": \"Av. Libertador 333\",\r\n    \"barName\": \"Charlone\",\r\n    \"price\": 1000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{host}}/api/events"
+					},
+					"response": []
+				},
+				{
+					"name": "Create event Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"AAAAAAAAAA\",\r\n    \"date\": \"12/3/23\",\r\n    \"flyer\": \"eaea\",\r\n    \"capacity\": 100,\r\n    \"address\": \"Av. Libertador 333\",\r\n    \"barName\": \"Charlone\",\r\n    \"price\": 1000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{host}}/api/events"
+					},
+					"response": []
+				},
+				{
+					"name": "Get event by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{host}}/api/events/6491ef3fd906c4e9bc4d1b2d"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Event",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"ASD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{host}}/api/events/648e3c60ddc0e6226f73dd39"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Event",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{host}}/api/events/6491f8a5c99d4c13ebb6dcb0"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{host}}/api/users"
+					},
+					"response": []
+				},
+				{
+					"name": "Create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mail\": \"user@user.user\",\r\n    \"username\": \"user3\",\r\n    \"password\": \"user1123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{host}}/api/users"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{host}}/api/users/648f7522230c0c9d43ea7e99"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"asd32232332\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{host}}/api/users/648f7533230c0c9d43ea7e9f"
+					},
+					"response": []
+				},
+				{
+					"name": "Get user by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{host}}/api/users/6490de846413c8a873e9518c"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://127.0.0.1:8080",
+			"type": "string"
+		}
+	]
+}
