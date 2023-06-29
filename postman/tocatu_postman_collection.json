@@ -35,7 +35,7 @@
 								}
 							}
 						},
-						"url": "{{host}}/api/bands/648f9741f68b3e0ba258215a"
+						"url": "{{host}}/api/bands/649dfb180ce5be2063ae8ef8"
 					},
 					"response": []
 				},
@@ -46,7 +46,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "   //structure of the band\r\n   {\r\n    \"username\": \"KISS\",\r\n    \"mail\": \"KISS@KISS.com\",\r\n    \"password\": \"KISS\",\r\n    \"style\": \"Rock\",\r\n    \"name\": \"KISS\"\r\n   }\r\n",
+							"raw": "   //structure of the band\r\n   {\r\n    \"username\": \"KISS2\",\r\n    \"mail\": \"KISS@KISS.com\",\r\n    \"password\": \"KISS\",\r\n    \"style\": \"Rock\",\r\n    \"name\": \"KISS\"\r\n   }\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -62,7 +62,7 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "{{host}}/api/bands/6484d21ad6a2c04dab946345"
+						"url": "{{host}}/api/bands/649dfb180ce5be2063ae8ef8"
 					},
 					"response": []
 				},
@@ -73,14 +73,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"sinatra5555\"\r\n}",
+							"raw": "{\r\n    \"username\": \"sinatra666\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "{{host}}/api/bands/648f9741f68b3e0ba258215a"
+						"url": "{{host}}/api/bands/649df5b6ba0d376da1b99208"
 					},
 					"response": []
 				}
@@ -121,7 +121,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{host}}/api/bars/648a4e85503037ad417a1ff7"
+						"url": "{{host}}/api/bars/649dfb550ce5be2063ae8f01"
 					},
 					"response": []
 				},
@@ -130,7 +130,7 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "{{host}}/api/bars/da"
+						"url": "{{host}}/api/bars/649dfb550ce5be2063ae8f01"
 					},
 					"response": []
 				}
@@ -155,25 +155,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"AAAAAAAAAA\",\r\n    \"date\": \"12/3/23\",\r\n    \"flyer\": \"eaea\",\r\n    \"capacity\": 100,\r\n    \"address\": \"Av. Libertador 333\",\r\n    \"barName\": \"Charlone\",\r\n    \"price\": 1000\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{host}}/api/events"
-					},
-					"response": []
-				},
-				{
-					"name": "Create event Copy",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"AAAAAAAAAA\",\r\n    \"date\": \"12/3/23\",\r\n    \"flyer\": \"eaea\",\r\n    \"capacity\": 100,\r\n    \"address\": \"Av. Libertador 333\",\r\n    \"barName\": \"Charlone\",\r\n    \"price\": 1000\r\n}",
+							"raw": "{\r\n    \"event\": {\r\n        \"title\": \"BBBBBBBBBBBBBBBB\",\r\n        \"date\": \"12/3/23\",\r\n        \"capacity\": 100,\r\n        \"address\": \"Av. Libertador 333\",\r\n        \"barName\": \"Charlone\",\r\n        \"price\": 1000,\r\n        \"description\": \"lorem ipsum\"\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -189,7 +171,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{host}}/api/events/6491ef3fd906c4e9bc4d1b2d"
+						"url": "{{host}}/api/events/649dfb760ce5be2063ae8f07"
 					},
 					"response": []
 				},
@@ -200,14 +182,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"ASD\"\r\n}",
+							"raw": "{\r\n    \"title\": \"tecito\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "{{host}}/api/events/648e3c60ddc0e6226f73dd39"
+						"url": "{{host}}/api/events/649dfb760ce5be2063ae8f07"
 					},
 					"response": []
 				},
@@ -216,7 +198,26 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "{{host}}/api/events/6491f8a5c99d4c13ebb6dcb0"
+						"url": "{{host}}/api/events/649dfb760ce5be2063ae8f07"
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "flyer",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": "{{host}}/api/events/upload/649dfa4324ffaec31a033228"
 					},
 					"response": []
 				}
@@ -257,7 +258,7 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "{{host}}/api/users/648f7522230c0c9d43ea7e99"
+						"url": "{{host}}/api/users/64975678bee06a1df7bda9fc"
 					},
 					"response": []
 				},
@@ -275,7 +276,7 @@
 								}
 							}
 						},
-						"url": "{{host}}/api/users/648f7533230c0c9d43ea7e9f"
+						"url": "{{host}}/api/users/6497568453fc5f5241be5324"
 					},
 					"response": []
 				},
@@ -284,7 +285,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{host}}/api/users/6490de846413c8a873e9518c"
+						"url": "{{host}}/api/users/6497568453fc5f5241be5324"
 					},
 					"response": []
 				}
